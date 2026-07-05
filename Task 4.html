@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sum of Numbers</title>
+</head>
+<body>
+
+  <button id="sumBtn">Click me</button>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("sumBtn").addEventListener("click", function () {
+      // Step 1: Create an array of all numbers between 0 and 100
+      let numbers = [];
+      for (let i = 0; i <= 100; i++) {
+        numbers.push(i);
+      }
+
+      // Step 2: Loop through the array and calculate the sum
+      let sum = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+      }
+
+      // Step 3: Print the result on the page
+      document.getElementById("result").textContent = "Sum of numbers from 0 to 100 is: " + sum;
+    });
+  </script>
+
+</body>
+</html>

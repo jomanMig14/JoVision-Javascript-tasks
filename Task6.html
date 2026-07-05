@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> 5 Button Task </title>
+</head>
+<body>
+
+  <button id="btn1">Button 1 - Remove divisible by 3</button>
+  <button id="btn2">Button 2 - Add 100 to 150</button>
+  <button id="btn3">Button 3 - Add 3 to each</button>
+  <button id="btn4">Button 4 - Print index 20 to 40</button>
+  <button id="btn5">Button 5 - Shuffle and sort descending</button>
+
+  <pre id="output" style="background:#eeeeee19; padding:10px; white-space:pre-wrap;"></pre>
+
+  <script>
+    function display(label, data) {
+      document.getElementById("output").textContent = label + ":\n" + JSON.stringify(data);
+    }
+
+    function createArray() {
+      let arr = [];
+      for (let i = 1; i <= 101; i++) {
+        arr.push(i);
+      }
+      return arr;
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    document.getElementById("btn1").addEventListener("click", function () {
+      let numbers = createArray();
+      let filtered = numbers.filter(num => num % 3 !== 0);
+      console.log(filtered);
+      display("Filtered (no multiples of 3)", filtered);
+    });
+
+    document.getElementById("btn2").addEventListener("click", function () {
+      let numbers = createArray();
+      for (let i = 100; i <= 150; i++) {
+        numbers.push(i);
+      }
+      console.log(numbers);
+      display("Array with 100-150 added", numbers);
+    });
+
+    document.getElementById("btn3").addEventListener("click", function () {
+      let numbers = createArray();
+      let added = numbers.map(num => num + 3);
+      console.log(added);
+      display("Array with 3 added to each member", added);
+    });
+
+    document.getElementById("btn4").addEventListener("click", function () {
+      let numbers = createArray();
+      let slice = numbers.slice(20, 41); // 41 to include index 40
+      console.log(slice);
+      display("Members from index 20 to 40", slice);
+    });
+
+    document.getElementById("btn5").addEventListener("click", function () {
+      let numbers = createArray();
+      shuffleArray(numbers);
+      console.log("Shuffled array:", numbers);
+
+      numbers.sort((a, b) => b - a);
+      console.log("Sorted descending:", numbers);
+      display("Sorted descending (see console for shuffled version too)", numbers);
+    });
+  </script>
+
+</body>
+</html>
