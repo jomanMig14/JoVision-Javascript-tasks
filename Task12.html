@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Task 12 - Object Creation</title>
+</head>
+<body>
+
+  <input type="text" id="nameInput" title="Name" placeholder="Name">
+  <input type="text" id="ageInput" title="Age" placeholder="Age">
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      let name = document.getElementById("nameInput").value;
+      let age = document.getElementById("ageInput").value;
+
+      let person = {
+        name: name,
+        age: age,
+        timestamp: new Date().toString()
+      };
+
+      let { name: personName, age: personAge, timestamp } = person;
+
+      alert(
+        "Your name is: " + personName +
+        "\nYour age is: " + personAge +
+        "\nTimestamp: " + timestamp
+      );
+    });
+  </script>
+
+</body>
+</html>

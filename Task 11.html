@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Get IP</title>
+</head>
+<body>
+
+  <button id="getIpBtn">Get ip</button>
+
+  <script>
+    document.getElementById("getIpBtn").addEventListener("click", function () {
+      fetch("https://api.ipify.orgx/")
+        .then(response => {
+          if (response.ok) {
+            return response.text();
+          } else {
+            throw new Error("Network response was not ok");
+          }
+        })
+        .then(data => {
+          document.getElementById("getIpBtn").textContent = data;
+        })
+        .catch(error => {
+          alert("Error: " + error.message);
+        });
+    });
+  </script>
+
+</body>
+</html>

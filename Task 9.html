@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Get IP</title>
+</head>
+<body>
+
+  <button id="getIpBtn">Get ip</button>
+
+  <script>
+    document.getElementById("getIpBtn").addEventListener("click", function () {
+
+      fetch('https://api.ipify.org/?format=json')
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        })
+       
+    });
+  </script>
+
+</body>
+</html>

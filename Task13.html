@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Name Age </title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+  }
+  input {
+    padding: 8px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    width: 150px;
+  }
+  button {
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <h2>Age Predictor</h2>
+  <input type="text" id="nameInput" title="Name" placeholder="Name">
+  <input type="text" id="ageInput" title="Age" placeholder="Age">
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const nameInput = document.getElementById('nameInput');
+    const ageInput = document.getElementById('ageInput');
+
+    submitBtn.addEventListener('click', () => {
+      const name = nameInput.value.trim();
+      const age = ageInput.value.trim();
+
+      if (!name || !age) {
+        alert('Please enter both a name and an age.');
+        return;
+      }
+
+      alert(`Your name is: ${name}\nYour age is: ${age}`);
+    });
+  </script>
+
+</body>
+</html>
